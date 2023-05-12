@@ -29,38 +29,38 @@ public class playercontroller : MonoBehaviour
 
         rb.AddForce(movement*speed*Time.deltaTime);
 
-        if (score>=5)
-        {
-            c += 1;
-            if(c % 30 == 0)
-            {
+        //if (score>=5)
+        //{
+        //    c += 1;
+        //    if(c % 30 == 0)
+        //    {
 
-                wintext.text += "!";
-            }
-        }
+        //        wintext.text += "!";
+        //    }
+        //}
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("pickup"))
-        {
-            other.gameObject.SetActive(false);
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("pickup"))
+    //    {
+    //        other.gameObject.SetActive(false);
 
-            score=score+1;
+    //        score=score+1;
 
-            SetCountText();
-        }
-    }
+    //        SetCountText();
+    //    }
+    //}
 
-    void SetCountText()
-    {
-        scoretext.text="count:"+score.ToString();
+    //void SetCountText()
+    //{
+    //    scoretext.text="count:"+score.ToString();
 
-        if (score >= 5)
-        {
-            wintext.text="You Win!";
+    //    if (score >= 5)
+    //    {
+    //        wintext.text="You Win!";
             
            
-        }
-    }
+    //    }
+    //}
 }
