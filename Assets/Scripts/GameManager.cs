@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
 
-            Debug.Log(i);
+           
 
             MAP[i] = Random.Range(1, 4);
             if (MAP[i] == 1)
@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
             {
                 ChoiceMap = Map3;
             }
-
 
             switch (i)
             {
