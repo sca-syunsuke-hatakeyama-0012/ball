@@ -12,7 +12,9 @@ public class CubeManager : MonoBehaviour
     private int ChoiceNumber;
     [SerializeField] private int ChildCount;
 
-    private void OnEnable()
+
+    // Start is called before the first frame update
+    void Start()
     {
         int i;
 
@@ -21,7 +23,7 @@ public class CubeManager : MonoBehaviour
 
         for (i = 0; i < 6; i++)
         {
-            Cube[i] = transform.GetChild(ChildCount - (i+1)).gameObject;
+            Cube[i] = transform.GetChild(ChildCount - (i + 1)).gameObject;
 
             if (i == ChoiceNumber)
             {
@@ -32,11 +34,6 @@ public class CubeManager : MonoBehaviour
                 Cube[i].SetActive(false);
             }
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-       
     }
 
     // Update is called once per frame

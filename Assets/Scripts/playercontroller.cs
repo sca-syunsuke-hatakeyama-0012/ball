@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class playercontroller : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int CubeCounter = 0;
+    public static int CubeCounter = 0;
     public float speed = 0.0f;
     private float Move = 0;
-    private int LotationSpeed = 100;
     Vector3 Forward;
+    public static Vector3 lotation;
     [SerializeField] Text CubeText;
 
-    private Rigidbody rb; 
 
-    void Start()
+    private void Start()
     {
-        //rb= GetComponent<Rigidbody>();
+        transform.position = new Vector3 (0, 0, 0);
+        CubeCounter = 0;
     }
 
     // Update is called once per frame
@@ -36,13 +36,15 @@ public class playercontroller : MonoBehaviour
             Move = 0;
         }
         Forward = transform.forward;
-        transform.position += speed*Forward * Move * Time.deltaTime;
+        transform.position += speed * Forward * Move * Time.deltaTime;
+        transform.rotation = cameracontroller.direction;
 
-        var lotaHorizontal = Input.GetAxis("Horizontal");
-        var lotation = new Vector3(0, lotaHorizontal, 0);
-        transform.Rotate(lotation * LotationSpeed * Time.deltaTime);
+        CubeText.text = CubeCounter.ToString() + ("/8");
 
-        CubeText.text = CubeCounter.ToString() + ("/9");
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CubeCounter += 1;
+        }
 
     }
 
@@ -55,15 +57,4 @@ public class playercontroller : MonoBehaviour
         }
     }
 
-    //void SetCountText()
-    //{
-    //    scoretext.text="count:"+score.ToString();
-
-    //    if (score >= 5)
-    //    {
-    //        wintext.text="You Win!";
-
-
-    //    }
-    //}
 }
